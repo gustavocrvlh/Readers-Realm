@@ -1,24 +1,16 @@
-﻿// Reader's Realm
+﻿/*
 
-string welcomeMessage = "Helping you to find and share book reviews ;)";
+READER'S REALM
 
-void ShowWelcomeMessage()
-{
+Design a console-based application in C# for book reviews.
+Include functionality for registering a new book, viewing all
+registered books, rating, and seeing the average rating.
 
-    Console.WriteLine(@"
-    
-        ██████╗░███████╗░█████╗░██████╗░███████╗██████╗░██╗░██████╗  ██████╗░███████╗░█████╗░██╗░░░░░███╗░░░███╗
-        ██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔════╝██╔══██╗╚█║██╔════╝  ██╔══██╗██╔════╝██╔══██╗██║░░░░░████╗░████║
-        ██████╔╝█████╗░░███████║██║░░██║█████╗░░██████╔╝░╚╝╚█████╗░  ██████╔╝█████╗░░███████║██║░░░░░██╔████╔██║
-        ██╔══██╗██╔══╝░░██╔══██║██║░░██║██╔══╝░░██╔══██╗░░░░╚═══██╗  ██╔══██╗██╔══╝░░██╔══██║██║░░░░░██║╚██╔╝██║
-        ██║░░██║███████╗██║░░██║██████╔╝███████╗██║░░██║░░░██████╔╝  ██║░░██║███████╗██║░░██║███████╗██║░╚═╝░██║
-        ╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚═════╝░╚══════╝╚═╝░░╚═╝░░░╚═════╝░  ╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚══════╝╚═╝░░░░░╚═╝
+All the functions for the menu can be fount in the MenuManager.cs file,
+and the functions used to register, rate and manage the books can be found
+in the LibraryManager.cs file.
 
-    ");
+*/
 
-    Console.WriteLine(welcomeMessage);
-    Console.WriteLine("Press any key to continue...");
-    Console.ReadKey();
-}
-
-ShowWelcomeMessage();
+MenuManager.ShowWelcomeMessage();
+MenuManager.ShowOptionsMenu();
