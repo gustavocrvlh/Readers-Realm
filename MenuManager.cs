@@ -1,7 +1,7 @@
 public class MenuManager
 {
 
-    public static void ShowWelcomeMessage()
+    public static void ShowTitle()
     {
 
         Console.WriteLine(@"
@@ -15,6 +15,10 @@ public class MenuManager
 
     ");
 
+    }
+
+    public static void ShowWelcomeMessage()
+    {
         Console.WriteLine("Helping you to find and share book reviews ;)");
         Console.WriteLine("\nPress any key to continue...");
         Console.ReadKey();
@@ -23,7 +27,8 @@ public class MenuManager
     public static void ShowOptionsMenu()
     {
         Console.Clear();
-        Console.WriteLine("\nType 1 to register a new book");
+        ShowTitle();
+        Console.WriteLine("\n\nType 1 to register a new book");
         Console.WriteLine("Type 2 to see all registered books");
         Console.WriteLine("Type 3 to rate a book");
         Console.WriteLine("Type 4 to see the average rating of a book");
@@ -39,7 +44,7 @@ public class MenuManager
                 LibraryManager.RegisterBook();
                 break;
             case 2:
-                Console.WriteLine("You've typed the option " + chosenOption);
+                LibraryManager.ShowAllBooks();
                 break;
             case 3:
                 Console.WriteLine("You've typed the option " + chosenOption);
