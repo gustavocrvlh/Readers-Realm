@@ -1,3 +1,8 @@
+/*
+    Aqui estão todas as funções que alteram ou mostram os dados salvos.
+    Here are all the functions that change or show the saved data.
+*/
+
 public class LibraryManager
 {
 
@@ -13,7 +18,6 @@ public class LibraryManager
         Console.Write("Insert the author's name: ");
         string author = Console.ReadLine()!;
 
-        // Adding the variables to the database (BookService.cs)
         bookService.AddBook(bookName, author);
 
         Console.WriteLine($"The book {bookName}, writen by {author}, was registered successfully");
@@ -27,7 +31,20 @@ public class LibraryManager
     public static void ShowAllBooks()
     {
         Console.Clear();
+
         var books = bookService.GetAllBooks();
+
+        // mostrando as bandas com loops usando for
+
+        // for (int i = 0; i < books.Count; i++)
+        // {
+        //  Console.WriteLine($"Book: {books[i]}");
+        // }
+
+        // foreach (string book in books)
+        // {
+        //     Console.WriteLine($"Book: {book}");
+        // }
 
         if (books.Count == 0)
         {
@@ -38,7 +55,7 @@ public class LibraryManager
             Console.WriteLine("Registered books:\n");
             foreach (var book in books)
             {
-                Console.WriteLine($"ID: {book.Id}, Name: {book.Name}, Author: {book.Author}");
+                Console.WriteLine($" Name: {book.Name} | Author: {book.Author}");
             }
         }
 
