@@ -6,7 +6,6 @@
     <RootNamespace>Readers_Realm</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RuntimeIdentifier>linux-x64;win-x64</RuntimeIdentifier>
   </PropertyGroup>
 
   <ItemGroup>

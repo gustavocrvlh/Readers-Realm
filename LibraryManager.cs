@@ -75,26 +75,38 @@ public class LibraryManager
             Console.WriteLine($"ID: {book.Id} | Name: {book.Name} | Author: {book.Author}");
         }
 
-        Console.Write("\nEnter the ID of the book you want to rate: ");
+        Console.Write("Enter the ID of the book you want to rate: ");
         int bookId;
         if (!int.TryParse(Console.ReadLine(), out bookId))
         {
             Console.WriteLine("Invalid input. Please enter a valid number.");
-            return;
+            Thread.Sleep(2000);
+            AddRatingToBook();
         }
+
+        var selectedBook = books.FirstOrDefault(book => book.Id == bookId);
+        if (selectedBook == null)
+        {
+            Console.WriteLine("No book found with the provided ID. Please try again.");
+            Thread.Sleep(2000);
+            AddRatingToBook();
+        }
+
 
         Console.Write("Enter your rating (1-5): ");
         int rating;
         if (!int.TryParse(Console.ReadLine(), out rating))
         {
             Console.WriteLine("Invalid input. Please enter a valid number.");
-            return;
+            Thread.Sleep(2000);
+            AddRatingToBook();
         }
 
         if (rating < 1 || rating > 5)
         {
             Console.WriteLine("Invalid rating. Please enter a value between 1 and 5.");
-            return;
+            Thread.Sleep(2000);
+            AddRatingToBook();
         }
 
         bookService.AddRating(bookId, rating);
