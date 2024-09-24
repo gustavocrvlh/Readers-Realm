@@ -14,6 +14,20 @@ public class BookService
         _context.SaveChanges();
     }
 
+    public void AddRating(int bookId, int rating)
+    {
+        var book = _context.Books.FirstOrDefault(b => b.Id == bookId);
+        if (book != null)
+        {
+            book.Ratings.Add(rating);
+            _context.SaveChanges();
+        }
+        else
+        {
+            Console.WriteLine($"Book with ID {bookId} not found.");
+        }
+    }
+
     public List<Book> GetAllBooks()
     {
         return _context.Books.ToList();

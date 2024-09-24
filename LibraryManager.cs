@@ -34,18 +34,6 @@ public class LibraryManager
 
         var books = bookService.GetAllBooks();
 
-        // mostrando as bandas com loops usando for
-
-        // for (int i = 0; i < books.Count; i++)
-        // {
-        //  Console.WriteLine($"Book: {books[i]}");
-        // }
-
-        // foreach (string book in books)
-        // {
-        //     Console.WriteLine($"Book: {book}");
-        // }
-
         if (books.Count == 0)
         {
             Console.WriteLine("No books registered yet.");
@@ -55,12 +43,64 @@ public class LibraryManager
             Console.WriteLine("Registered books:\n");
             foreach (var book in books)
             {
-                Console.WriteLine($" Name: {book.Name} | Author: {book.Author}");
+                Console.WriteLine(@$"
+                Name: {book.Name}
+                Author: {book.Author}
+                Average Rating: {book.AverageRating:F1}/5
+                ");
             }
         }
 
         Console.WriteLine("\nPress any key to go back to the menu.");
         Console.ReadKey();
+        MenuManager.ShowOptionsMenu();
+    }
+
+    public static void AddRatingToBook()
+    {
+        Console.Clear();
+
+        var books = bookService.GetAllBooks();
+        if (books.Count == 0)
+        {
+            Console.WriteLine("No books registered yet.");
+            Thread.Sleep(2000);
+            MenuManager.ShowOptionsMenu();
+            return;
+        }
+
+        Console.WriteLine("Registered books:\n");
+        foreach (var book in books)
+        {
+            Console.WriteLine($"ID: {book.Id} | Name: {book.Name} | Author: {book.Author}");
+        }
+
+        Console.Write("\nEnter the ID of the book you want to rate: ");
+        int bookId;
+        if (!int.TryParse(Console.ReadLine(), out bookId))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            return;
+        }
+
+        Console.Write("Enter your rating (1-5): ");
+        int rating;
+        if (!int.TryParse(Console.ReadLine(), out rating))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            return;
+        }
+
+        if (rating < 1 || rating > 5)
+        {
+            Console.WriteLine("Invalid rating. Please enter a value between 1 and 5.");
+            return;
+        }
+
+        bookService.AddRating(bookId, rating);
+
+        Console.WriteLine($"Rating of {rating} has been added to the book {bookId}.");
+        Thread.Sleep(2000);
         MenuManager.ShowOptionsMenu();
     }
 

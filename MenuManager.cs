@@ -40,16 +40,13 @@ public class MenuManager
         Console.Clear();
         ShowTitle();
         Console.WriteLine("\n\nType 1 to register a new book");
-        Console.WriteLine("Type 2 to see all registered books");
-        Console.WriteLine("Type 3 to rate a book");
-        Console.WriteLine("Type 4 to see the average rating of a book");
+        Console.WriteLine("Type 2 to rate a book");
+        Console.WriteLine("Type 3 to see all registered books and their average rating");
         Console.WriteLine("\ntype -1 to exit");
 
         Console.Write("\nType the number realated to the option: ");
         string chosenOption = Console.ReadLine()!;
-
         int chosenOptionNumber = int.Parse(chosenOption);
-
         switch (chosenOptionNumber)
         {
 
@@ -57,13 +54,10 @@ public class MenuManager
                 LibraryManager.RegisterBook();
                 break;
             case 2:
-                LibraryManager.ShowAllBooks();
+                LibraryManager.AddRatingToBook();
                 break;
             case 3:
-                Console.WriteLine("You've typed the option " + chosenOption);
-                break;
-            case 4:
-                Console.WriteLine("You've typed the option " + chosenOption);
+                LibraryManager.ShowAllBooks();
                 break;
             case -1:
                 Console.WriteLine("Exiting...");
