@@ -1,5 +1,4 @@
 <h1>READER'S REALM</h1>
-<h3>* Still working on the reviews part os the program *</h3>
 <p>Design a console-based application in C# for book reviews.
 Include functionality for registering a new book, viewing all
 registered books, rating, and seeing the average rating.</p>
@@ -8,7 +7,11 @@ and the functions used to register, rate and manage the books can be found
 in the LibraryManager.cs file.</p>
 
 <h2>Generating db files:</h2>
-
+<p>
+  All the registered books and their ratings are saved in the db files.
+  The ratings are saved as a list, and the average is 
+  calculated at Book.cs inside the class Book using Average()
+</p>
 <p>You can use Entity Frameowork's own comands to generate the database files.</p>
 <p>Here are some examples:</p>
 
@@ -31,8 +34,11 @@ Add-Migration InitialCreate
 ```
 Update-Database
 ```
+![image](https://github.com/user-attachments/assets/57fb641f-dc45-4770-8aa5-ed85284c11e5)
 
-![image](https://github.com/user-attachments/assets/f1f604cc-d476-4cea-b332-1604eb73fc0c)
-![image](https://github.com/user-attachments/assets/8f3c4bc6-256f-42f7-8632-96fc885ba362)
 ![Captura de tela de 2024-09-24 11-24-15](https://github.com/user-attachments/assets/76c80cc5-c575-489b-832d-336ed88edb89)
-![Captura de tela de 2024-09-24 11-24-27](https://github.com/user-attachments/assets/7baa7e31-2de6-461e-ba03-71e1a5f9e647)
+
+![image](https://github.com/user-attachments/assets/f5001e4a-087c-48b7-a513-98d90334cc9b)
+
+![image](https://github.com/user-attachments/assets/a9f44aa0-229d-41e6-a876-4aa9ab08ff28)
+
