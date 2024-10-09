@@ -64,6 +64,8 @@ public class MenuManager
                 break;
             default:
                 Console.WriteLine("Ivalid option...");
+                Thread.Sleep(2000);
+                ShowOptionsMenu();
                 break;
 
         }

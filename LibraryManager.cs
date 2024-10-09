@@ -75,13 +75,19 @@ public class LibraryManager
             Console.WriteLine($"ID: {book.Id} | Name: {book.Name} | Author: {book.Author}");
         }
 
-        Console.Write("Enter the ID of the book you want to rate: ");
+        Console.Write("Enter the ID of the book you want to rate (or type -1 to cancel): ");
         int bookId;
         if (!int.TryParse(Console.ReadLine(), out bookId))
         {
             Console.WriteLine("Invalid input. Please enter a valid number.");
             Thread.Sleep(2000);
             AddRatingToBook();
+        }
+        else if (bookId == -1)
+        {
+            Console.WriteLine("Returning to the menu...");
+            Thread.Sleep(2000);
+            MenuManager.ShowOptionsMenu();
         }
 
         var selectedBook = books.FirstOrDefault(book => book.Id == bookId);
